@@ -49,7 +49,7 @@ jobs:
         run: |
           echo '{ "actor": "${{ github.actor }}", "date": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'" }' > sign.json
           jf evd create --package-name ${{ vars.APPLICATION_NAME }} --package-version ${{ github.run_number }} --package-repo-name ${{ vars.DEV_LOCAL }} \
-            --key "${{ secrets.PRIVATE_KEY }}"  --key-alias KEY-ALIAS \
+            --key "${{ secrets.PRIVATE_KEY }}"  --key-alias KEYS-ALIAS \
             --predicate ./sign.json --predicate-type https://in-toto.io/attestation/scai/attribute-report
           echo '🔎 Evidence attached: `signature` 🔏 ' 
 
